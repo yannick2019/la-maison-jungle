@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [21.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,15 +32,13 @@ jobs:
         run: |
           yarn run build
           yarn test
-          
-  push_to_Docker_Hub:
 
+  push_to_Docker_Hub:
     runs-on: ubuntu-latest
     # build docker image and push to docker hub
     # only if the app build and test successfully
     needs: [build_test]
     steps:
-      
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -75,6 +73,6 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID}} 
+          vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           vercel-args: "--prod"
