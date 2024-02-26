@@ -13,5 +13,6 @@ Using GitHub Actions to automate:
 ## Used Tech
 
 - React
+- JavaScript
 - CSS
 - Docker
