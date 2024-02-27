@@ -14,17 +14,17 @@ jobs:
       - name: login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        run: docker build -t integrationninjas/la-maison-jungle .
+        run: docker build -t yaniko/la-maison-jungle .
       - name: Publish Image to docker hub
-        run: docker push integrationninjas/la-maison-jungle:latest
+        run: docker push yaniko/la-maison-jungle:latest
 
   deploy:
     needs: build
     runs-on: aws-ec2
     steps:
       - name: Pull image from docker hub
-        run: docker pull integrationninjas/la-maison-jungle:latest
+        run: docker pull yaniko/la-maison-jungle:latest
       - name: Delete Old Container
         run: docker rm -f reactContainer
       - name: Run docker container
-        run: docker run -d -p 3000:80 --name reactContainer integrationninjas/la-maison-jungle
+        run: docker run -d -p 3000:80 --name reactContainer yaniko/la-maison-jungle

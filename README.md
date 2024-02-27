@@ -6,7 +6,7 @@ Light ecommerce plants web app.
 
 Using GitHub Actions to automate:
 
-- Building and pushing docker image to DockerHub, deploy updates on AWS EC2 for every push and pull request.
+- Building and pushing docker image to DockerHub, deployment on AWS EC2 for every push and pull request.
 
 ## Used Tech
 
