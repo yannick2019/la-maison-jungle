@@ -3,7 +3,7 @@ name: CICD
 on:
   push:
     branches:
-      - deploy-to-ec2
+      - main
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
         run: docker push integrationninjas/la-maison-jungle:latest
 
   deploy:
-    needs:build
+    needs: build
     runs-on: aws-ec2
     steps:
       - name: Pull image from docker hub
