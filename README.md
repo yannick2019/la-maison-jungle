@@ -6,9 +6,7 @@ Light ecommerce plants web app.
 
 Using GitHub Actions to automate:
 
-- Building and pushing docker image to DockerHub,
-- Deploy updates to Vercel
-  for every push and pull request.
+- Building and pushing docker image to DockerHub, deployment on AWS EC2 for every push and pull request.
 
 ## Used Tech
 
@@ -16,3 +14,4 @@ Using GitHub Actions to automate:
 - JavaScript
 - CSS
 - Docker
+- AWS for deployment
